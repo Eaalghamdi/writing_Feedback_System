@@ -1,0 +1,16 @@
+body {
+    color: #4c5357;
+    background: #f0f3f4;
+    font-style: normal;
+    font-family: "Open Sans", "Helvetica Neue", Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.7em;
+    word-wrap: break-word;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-size-adjust: none;
+}
+
+.meta {
+    margin-bottom: 1.25rem;
+    color: #999;
+}
