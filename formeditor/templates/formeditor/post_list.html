@@ -3,46 +3,40 @@
 
 {% block content %}
 
-<!-- {% if user.is_authenticated %}
-  Hi {{ user.username }}!
+			<div class="row">
+				<div class="col-md-8 w-75">
+                    {% for post in posts %}
+					<div class="card">
+						<div class="card-body">
+                            <h2 class="card-title">{{ post.title }}</h2>
+                            <p class="card-text">{{ post.text|safe}} </p>
+                            <p class="card-text"><small class="text-muted">Last updated {{ post.published_date }} </small></p>
+                            <a class="btn btn-primary btn-sm" href="{% url 'post_detail' pk=post.pk %}">Read More</a>
 
-    <a href="{% url 'post_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
-{% else %}
-  <p>You are not logged in</p>
-  <a href="{% url 'login' %}">login</a>
-{% endif %} -->
+						</div>
+					</div>
+                    <br>
+                        {% endfor %}
+				</div>
 
+                <!-- Sidebar Widgets Column -->
+				<div class="col-md-3">
+                    <div class="list-group">
+                        <a href="#" class="list-group-item">
+                                <i class="fa fa-comment-o"></i> My Account
+                        </a>
+                        <a href="{% url 'post_new' %}" class="list-group-item">
+                                    <i class="fa fa-search"></i> Start Writing
+                        </a>
+                        <a href="{% url 'post_list' %}" class="list-group-item">
+                                    <i class="fa fa-user"></i> My Essays
+                        </a>
+                        <a href="{% url 'logout' %}" class="list-group-item">
+                                    <i class="fa fa-user"></i> Logout
+                        </a>
 
+                    </div>
+				</div>
 
-
-<div class="container-fluid">
-
-    {% for post in posts %}
-
-    <div class="card w-75">
-      <div class="card-body">
-        <h2 class="card-title">{{ post.title }}</h2>
-        <p class="card-text">{{ post.text|safe}} </p>
-        <p class="card-text"><small class="text-muted">Last updated {{ post.published_date }} </small></p>
-        <a class="btn btn-primary btn-sm" href="{% url 'post_detail' pk=post.pk %}">Read More</a>
-      </div>
-    </div>
-    <br>
-            <!-- <p> {{post.video.video_url}} </p>
-            <p> {{post.video.video_title}} </p> -->
-
-    {% endfor %}
-
-    <div class="card w-25">
-      <div class="card-body">
-        <h2 class="card-title"></h2>
-        <p class="card-text"></p>
-        <p class="card-text"><small class="text-muted"> </small></p>
-        <a class="btn btn-primary btn-sm" href="">Read More</a>
-      </div>
-    </div>
-</div>
-
-
-
-{% endblock %}
+		  </div>
+    {% endblock %}

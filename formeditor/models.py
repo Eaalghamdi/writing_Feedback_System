@@ -11,7 +11,6 @@ class Post(models.Model):
             default=timezone.now)
     published_date = models.DateTimeField(
             blank=True, null=True)
-    video = models.ForeignKey('Video', on_delete=models.CASCADE, null=True)
 
     def publish(self):
         self.published_date = timezone.now()
@@ -22,7 +21,7 @@ class Post(models.Model):
 
 
 class Video(models.Model):
-
+    post = models.ForeignKey('Post', on_delete=models.CASCADE, null=True)
     video_title = models.CharField(max_length=300)
     video_url = models.URLField(max_length=500)
 

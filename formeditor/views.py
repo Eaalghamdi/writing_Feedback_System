@@ -22,8 +22,8 @@ def post_list(request):
 
 def post_detail(request, pk):
     post = get_object_or_404(Post, pk=pk)
-    videos = Video.objects.all()
-    return render(request, 'formeditor/post_detail.html', {'post': post, 'videos': videos,})
+    posts = Post.objects.all()
+    return render(request, 'formeditor/post_detail.html', {'post': post, 'posts': posts,})
 
 def post_new(request):
     if request.method == "POST":
